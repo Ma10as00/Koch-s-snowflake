@@ -12,18 +12,28 @@ public class KochSnowFlake extends JPanel {
     private Point2D p2;
     private Point2D p3;
     private int depth;
-    
+ 
     /**
-     * Constructs a Koch's snowflake.
-     * @param fr - The frame to draw the snowflake on
-     * @param depth - Number of iterations to run the algorithm
-     * @param length - The length of the sides in the original triangle (when depth=0)
+     * Constructs a Koch's snowflake within a frame, given the frame's width and height
+     * @param frWidth - Frame's width
+     * @param frHeight - Frame's height
+     * @param depth - Number of iterations to run the algorithm through
      */
-    public KochSnowFlake(JFrame fr, int depth, int length){
-        p1 = new Point2D.Double(fr.getWidth()/2 + length/2, fr.getHeight()/2 + length/100*43);
-        p2 = new Point2D.Double(fr.getWidth()/2 -length/2, fr.getHeight()/2 + length/100*43);
-        p3 = new Point2D.Double(fr.getWidth()/2,fr.getHeight()/2-length/100*43);
+    public KochSnowFlake(int frWidth, int frHeight, int depth){
+        int length = Math.max(frWidth, frHeight) / 3;
+        p1 = new Point2D.Double(frWidth/2 + length/2, frHeight/2 + length/100*43);
+        p2 = new Point2D.Double(frWidth/2 - length/2, frHeight/2 + length/100*43);
+        p3 = new Point2D.Double(frWidth/2,frHeight/2-length/100*43);
         this.depth = depth;
+    }
+
+    /**
+     * Constructs a Koch's snowflake, centered in the given frame.
+     * @param fr - The frame to draw the snowflake on
+     * @param depth - Number of iterations to run the algorithm through
+     */
+    public KochSnowFlake(JFrame fr, int depth){
+        this(fr.getWidth(), fr.getHeight(), depth);
     }
 
     @Override
