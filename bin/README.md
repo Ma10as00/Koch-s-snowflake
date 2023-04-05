@@ -2,7 +2,7 @@
 
 Take a look at the demonstration video:
 
-![Product Demonstration](img/video2702981061.mp4)
+![Product Demonstration](video2702981061.mp4)
 
 ## Folder Structure
 
